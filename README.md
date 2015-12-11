@@ -1,56 +1,56 @@
-linter-scss-lint
+linter-yaml-lint
 =========================
-[![Build Status](https://travis-ci.org/AtomLinter/linter-scss-lint.svg?branch=master)](https://travis-ci.org/AtomLinter/linter-scss-lint)
-[![Dependency Status](https://david-dm.org/AtomLinter/linter-scss-lint.svg)](https://david-dm.org/AtomLinter/linter-scss-lint)
-[![Plugin installs!](https://img.shields.io/apm/dm/linter-scss-lint.svg)](https://atom.io/packages/linter-scss-lint)
-[![Package version!](https://img.shields.io/apm/v/linter-scss-lint.svg?style=flat)](https://atom.io/packages/linter-scss-lint)
+[![Build Status](https://travis-ci.org/alexweber/linter-yaml-lint.svg?branch=master)](https://travis-ci.org/alexweber/linter-yaml-lint)
+[![Dependency Status](https://david-dm.org/alexweber/linter-yaml-lint.svg)](https://david-dm.org/alexweber/linter-yaml-lint)
+[![Plugin installs!](https://img.shields.io/apm/dm/linter-yaml-lint.svg)](https://atom.io/packages/linter-yaml-lint)
+[![Package version!](https://img.shields.io/apm/v/linter-yaml-lint.svg?style=flat)](https://atom.io/packages/linter-yaml-lint)
 
-This linter plugin for [Linter](https://github.com/AtomLinter/Linter) provides an interface to [scss-lint](https://github.com/causes/scss-lint). It will be used with files that have the “SCSS” syntax.
+This linter plugin for [Linter](https://github.com/AtomLinter/Linter) provides an interface to [yaml-lint](https://github.com/Pryz/yaml-lint). It will be used with files that have the “YAML syntax.
 
 ### Installation
 Linter package will automatically be installed for you if you do not already have it.
 
-#### scss-lint installation
-Before using this plugin, you must ensure that `scss-lint` is installed on your system. To install `scss-lint`, do the following:
+#### yaml-lint installation
+Before using this plugin, you must ensure that `yaml-lint` is installed on your system. To install `yaml-lint`, do the following:
 
 1. Install [ruby](https://www.ruby-lang.org/).
 
-2. Install [scss-lint](https://github.com/causes/scss-lint) by typing the following in a terminal:
+2. Install [yaml-lint](https://github.com/Pryz/yaml-lint) by typing the following in a terminal:
    ```
-   gem install scss_lint
+   gem install yaml-lint
    ```
 
-Now you can proceed to install the linter-scss-lint plugin.
+Now you can proceed to install the linter-yaml-lint plugin.
 
 #### Plugin installation
 ```
-$ apm install linter-scss-lint
+$ apm install linter-yaml-lint
 ```
 
 ### Settings
-You can configure linter-scss-lint by editing ~/.atom/config.cson (choose Open Your Config in Atom menu):
+You can configure linter-yaml-lint by editing ~/.atom/config.cson (choose Open Your Config in Atom menu):
 ```cson
-'linter-scss-lint':
+'linter-yaml-lint':
 
-  # Optionally specify additional arguments to be passed to `scss-lint`.
-  # Run `scss-lint -h` to see available options.
+  # Optionally specify additional arguments to be passed to `yaml-lint`.
+  # Run `yaml-lint -h` to see available options.
   'additionalArguments': null
 
-  # Optionally disable `scss-lint` if you don't have an ``.scss-lint.yml` in
+  # Optionally disable `yaml-lint` if you don't have an ``.yaml-lint.yml` in
   # your project directory
   'disableWhenNoConfigFileInPath': false
 
-  # The `scss-lint` path. Run `which scss-lint` to find this path.
+  # The `yaml-lint` path. Run `which yaml-lint` to find this path.
   'executablePath': null
 ```
 
 ### Config file
-Linter will start looking for `.scss-lint.yml` file in the same directory as the file that's being linted. If not found, it will move one level up the directory tree all the way up to the filesystem root (If you enabled `disableWhenNoConfigFileInPath`, then it will not search further).
+Linter will start looking for `.yaml-lint.yml` file in the same directory as the file that's being linted. If not found, it will move one level up the directory tree all the way up to the filesystem root (If you enabled `disableWhenNoConfigFileInPath`, then it will not search further).
 
 
 ### Using `rvm`
 
-If you are using `rvm`, you will need a wrapper for `scss-lint` to run properly.  There are a couple options for this (see below).
+If you are using `rvm`, you will need a wrapper for `yaml-lint` to run properly.  There are a couple options for this (see below).
 
 **_NOTE:_** *If you are seeing* `Error: env: ruby_executable_hooks: No such file or directory` *then you need to do this!*
 
@@ -61,10 +61,10 @@ Consult rvm docs for further info not covered in this README - https://rvm.io/
 This will create a wrapper just for atom using your current ruby version:
 
 ```bash
-$ rvm wrapper current atom scss-lint
+$ rvm wrapper current atom yaml-lint
 ```
 
-Then in `linter-scss-lint` set `executablePath` to `/path/to/rvm/bin/atom_scss-lint`
+Then in `linter-yaml-lint` set `executablePath` to `/path/to/rvm/bin/atom_yaml-lint`
 
 *Note: you can find rvm path using* `which rvm`
 
@@ -76,13 +76,13 @@ You can also just use the wrapper generated for a particular ruby version.  This
 $ ls -al /path/to/rvm/gems/ruby-x.y.z/wrappers
 ```
 
-If `scss-lint` isn't in there, generate the wrappers:
+If `yaml-lint` isn't in there, generate the wrappers:
 
 ```bash
 $ rvm wrapper current
 ```
 
-Then in `linter-scss-lint` set `executablePath` to `/path/to/rvm/gems/ruby-x.y.z/wrappers/scss-lint`
+Then in `linter-yaml-lint` set `executablePath` to `/path/to/rvm/gems/ruby-x.y.z/wrappers/yaml-lint`
 
 
 ### Contributing

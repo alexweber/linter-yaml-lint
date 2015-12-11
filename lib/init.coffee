@@ -11,22 +11,22 @@ module.exports =
     disableWhenNoConfigFileInPath:
       type: 'boolean'
       default: false
-      description: 'Disable linter when no `.scss-lint.yml` is found in project'
+      description: 'Disable linter when no `.yaml-lint.yml` is found in project'
     executablePath:
       title: 'Executable Path'
       type: 'string'
-      default: 'scss-lint'
+      default: 'yaml-lint'
 
   activate: ->
     require('atom-package-deps').install require('../package.json').name
     @subs = new CompositeDisposable
-    @subs.add atom.config.observe 'linter-scss-lint.executablePath',
+    @subs.add atom.config.observe 'linter-yaml-lint.executablePath',
       (executablePath) =>
         @executablePath = executablePath
-    @subs.add atom.config.observe 'linter-scss-lint.additionalArguments',
+    @subs.add atom.config.observe 'linter-yaml-lint.additionalArguments',
       (additionalArguments) =>
         @additionalArguments = additionalArguments
-    @subs.add atom.config.observe 'linter-scss-lint.disableWhenNoConfigFileInPath',
+    @subs.add atom.config.observe 'linter-yaml-lint.disableWhenNoConfigFileInPath',
       (disableOnNoConfig) =>
         @disableOnNoConfig = disableOnNoConfig
 
@@ -35,14 +35,14 @@ module.exports =
 
   provideLinter: ->
     provider =
-      grammarScopes: ['source.css.scss', 'source.scss']
+      grammarScopes: ['source.css.yaml', 'source.yaml']
       scope: 'file'
       lintOnFly: yes
       lint: (editor) =>
         filePath = editor.getPath()
         cwd = path.dirname(filePath)
 
-        config = findFile cwd, '.scss-lint.yml'
+        config = findFile cwd, '.yaml-lint.yml'
 
         return [] if @disableOnNoConfig and not config
 

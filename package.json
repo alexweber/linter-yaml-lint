@@ -1,9 +1,9 @@
 {
-  "name": "linter-scss-lint",
+  "name": "linter-yaml-lint",
   "main": "./lib/init",
-  "version": "2.4.0",
-  "description": "Lint SCSS on the fly, using scss-lint",
-  "repository": "https://github.com/AtomLinter/linter-scss-lint",
+  "version": "0.1.0",
+  "description": "Lint YAML on the fly, using yaml-lint",
+  "repository": "https://github.com/alexweber/linter-yaml-lint",
   "license": "MIT",
   "scripts": {
     "lint": "./node_modules/.bin/coffeelint ./lib"
